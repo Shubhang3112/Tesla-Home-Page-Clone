@@ -1,0 +1,8 @@
+.page {
+    height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    /* scroll-snap-type: mandatory; */
+    scroll-snap-align: start;
+}

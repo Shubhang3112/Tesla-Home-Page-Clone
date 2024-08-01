@@ -1,0 +1,22 @@
+.navbar {
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.logo_svg svg{
+    height: 24px;
+    width: 120px;
+}
+.icon_list {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+}
+.icons svg {
+    height: 24px;
+}

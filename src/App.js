@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import { ROUTING_PATH } from "./constant/RoutingPath";
+import Home_Page from "./pages/Home_Page";
+import ToDo from "./pages/ToDo";
+import { createContext, useState } from "react";
+
+export const ToDoContext = createContext(null);
 
 function App() {
+  const [task, setTask] = useState("");
+  const [taskArray, setTaskArray] = useState([]);
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ToDoContext.Provider value={{task, setTask,taskArray, setTaskArray,data, setData,filteredData, setFilteredData}}>
+
+    <BrowserRouter>
+      <Routes>
+        <Route path={ROUTING_PATH.home} element={<Home_Page />} />
+        <Route path={ROUTING_PATH.todo} element={<ToDo />} />
+      </Routes>
+    </BrowserRouter>
+    </ToDoContext.Provider>
   );
 }
 
